@@ -11,9 +11,9 @@
       ((host     (or (cdr (assoc :host params)) "127.0.0.1"))
       (username (cdr (assoc :username params)))
       (password (cdr (assoc :password params)))
-      (cypher-params '((:host . host)
-                       (:password . password)
-                       (:username . username))))
+      (cypher-params `((:host . ,host)
+                       (:password . ,password)
+                       (:username . ,username))))
       
     (message (prin1-to-string cypher-params))
       (s-format "cypher ${:host}" 'aget cypher-params)
